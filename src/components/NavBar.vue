@@ -9,8 +9,8 @@
         </div>
         <div></div>
         <div class="items-center grid justify-between grid-flow-col">
-            <img src="../../public/assets/icon-cart.svg" alt="" class="w-7">
-            <img src="../../public/assets/image-avatar.png" alt="" class="w-16">
+            <img src="../../public/assets/icon-cart.svg" alt="" class="w-5">
+            <img src="../../public/assets/image-avatar.png" alt="" class="w-12">
         </div>
 </template>
 

@@ -6,12 +6,12 @@ import ProductPage from './components/ProductPage.vue';
 
 <template>
   <header>
-    <nav class="border-b border-blue-grayish grid grid-cols-[4fr,2fr,1fr] py-7 mb-10">
+    <nav class="border-b border-blue-grayish grid grid-cols-[4fr,1.75fr,.65fr] py-5 mb-10">
       <NavBar />
     </nav>
   </header>
 
-  <main class="grid grid-cols-2 m-auto mt-10">
+  <main class="grid grid-cols-2 m-auto mx-20 mt-10">
     <ProductPage />
   </main>
 </template>
