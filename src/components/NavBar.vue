@@ -1,6 +1,6 @@
 <template>
         <div class="grid grid-flow-col items-center text-blue-grayish">
-            <img src="../../public/assets/logo.svg" alt="" class="mr-16 ml-4 scale-125">
+            <img src="/assets/logo.svg" alt="" class="mr-16 ml-4 scale-125">
             <a href="#">Collections</a>
             <a href="#">Men</a>
             <a href="#">Women</a>
@@ -9,8 +9,8 @@
         </div>
         <div></div>
         <div class="items-center grid justify-between grid-flow-col">
-            <img src="../../public/assets/icon-cart.svg" alt="" class="w-5">
-            <img src="../../public/assets/image-avatar.png" alt="" class="w-12">
+            <img src="/assets/icon-cart.svg" alt="" class="w-5">
+            <img src="/assets/image-avatar.png" alt="" class="w-12">
         </div>
 </template>
 
