@@ -41,6 +41,29 @@ const prevProduct = () => {
     index.value < 0 ? index.value = 3 : ''
 }
 
+const numberOfProducts = ref(0)
+
+const increaseNumberOfProducts = () => {
+    numberOfProducts.value += 1
+}
+
+const reduceNumberOfProducts = () => {
+    numberOfProducts.value -= 1
+    numberOfProducts.value < 0 ? numberOfProducts.value = 0 : ''
+}
+
+const cart = ref(false)
+
+const addToCart = () => {
+    cart.value = true
+}
+
+const removeFromCart = () => {
+    cart.value = false
+}
+
+const showCart = ref(false)
+
 const popUp = ref(false)
 
 const openPopUp = (thumbnail: string) => {
@@ -86,6 +109,23 @@ const closePopUp = () => {
             </div>
         </div>
     </div>
+    <div v-if="true" class="absolute z-30 -top-[14%] w-[26rem] h-[17rem] -right-[16%] rounded-lg shadow-2xl bg-white">
+        <h3 class="p-5 h-[25%] border-b border-blue-grayish font-bold text-lg">Cart</h3>
+        <div class="flex h-[75%]">
+            <p v-if="!cart" class="m-auto font-bold text-blue-grayish-dark text-lg">Your cart is empty</p>
+            <div v-if="cart" class="grid w-full">
+                <div class="flex flex-row items-center justify-between mx-8 mt-3">
+                    <img src="/assets/image-product-1-thumbnail.jpg" alt="Product Thumbnail" class="rounded-lg h-16">
+                    <div class="text-blue-grayish-dark text-lg">
+                        <p>Fall Limited Edition Sneakers</p>
+                        <p>$125.00 x 3 <span class="text-black font-bold">$375.00</span></p>
+                    </div>
+                    <img src="/assets/icon-delete.svg" alt="Delete Icon" class="h-5" @click="removeFromCart">
+                </div>
+                <button class="mx-8 mb-5 self-center h-16 bg-orange rounded-lg font-bold text-white text-lg">Checkout</button>
+            </div>
+        </div>
+    </div>
     <div class="m-auto ml-14">
         <h5 class="uppercase text-orange font-bold mb-5" style="letter-spacing: 2.75px;">Sneaker Company</h5>
         <h1 class="text-5xl font-bold mb-10">Fall Limited Edition Sneakers</h1>
@@ -95,15 +135,15 @@ const closePopUp = () => {
         <p class="text-blue-grayish line-through mb-5">$250.00</p>
         <div class="grid grid-cols-[2fr,.5fr,3fr] items-center">
             <div class="flex flex-row p-5 py-3 bg-blue-grayish-light w-full text-3xl font-bold items-center justify-between rounded-lg">
-                <img src="/assets/icon-minus.svg" alt="">
-                <p class="text-xl font-bold">0</p>
-                <img src="/assets/icon-plus.svg" alt="">
+                <img src="/assets/icon-minus.svg" alt="Minus Icon" @click="reduceNumberOfProducts">
+                <p class="text-xl font-bold">{{ numberOfProducts }}</p>
+                <img src="/assets/icon-plus.svg" alt="Plus Icon" @click="increaseNumberOfProducts">
             </div>
             <div></div>
-            <div class="flex flex-row px-10 py-3 bg-orange text-white w-full text-3xl font-bold items-center justify-center rounded-lg shadow-lg shadow-orange">
+            <button class="flex flex-row px-10 py-3 bg-orange text-white w-full text-3xl font-bold items-center justify-center rounded-lg shadow-lg shadow-orange">
                 <object data="/assets/icon-cart.svg" type="image/svg+xml" title="Icon Cart" class="pr-5"></object>
-                <p class="text-xl font-bold">Add to cart</p>
-            </div>
+                <p class="text-xl font-bold" @click="addToCart">Add to cart</p>
+            </button>
         </div>
     </div>
 </template>
